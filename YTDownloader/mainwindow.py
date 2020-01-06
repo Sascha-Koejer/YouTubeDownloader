@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'YTDownloader\mainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.14.0
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -14,8 +14,8 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(370, 162)
-        MainWindow.setMinimumSize(QtCore.QSize(370, 162))
-        MainWindow.setMaximumSize(QtCore.QSize(370, 162))
+        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
+        MainWindow.setMaximumSize(QtCore.QSize(1000, 1000))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 370, 22))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 370, 21))
         self.menuBar.setObjectName("menuBar")
         self.menuDatei = QtWidgets.QMenu(self.menuBar)
         self.menuDatei.setObjectName("menuDatei")
