@@ -41,10 +41,14 @@ class MainWindow(QtWidgets.QMainWindow):
         
     def add_waitinglist(self):
         url = self.ui.urlinput.text()
+        yt = YouTube(url)
         qualtiy = 140
         if self.ui.checkBox.isChecked():
             qualtiy = 18
-
+        row = self.ui.tableWidget.rowCount()
+        self.ui.tableWidget.insertRow(row)
+        self.ui.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(yt.title))
+        self.ui.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem("Warteschlange"))
         self.ui.urlinput.clear()
         q.put((qualtiy, url))
         
@@ -80,8 +84,7 @@ class Download(QThread):
 
                 global max_file_size
                 max_file_size = stream.filesize
-                stream.download(config.get('Settings', 'path'))
-
+                stream.download(config.get('Settings', 'path')
                 self.valueChanged.emit(0)
 
         except BaseException as error:
