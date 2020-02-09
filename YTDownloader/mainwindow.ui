@@ -85,6 +85,12 @@
     </item>
     <item row="3" column="1">
      <widget class="QTableWidget" name="tableWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <attribute name="horizontalHeaderCascadingSectionResizes">
        <bool>true</bool>
       </attribute>
@@ -106,12 +112,18 @@
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
       </attribute>
+      <attribute name="verticalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
        <bool>true</bool>
       </attribute>
+      <attribute name="verticalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
       <column>
        <property name="text">
-        <string>Status</string>
+        <string>Format</string>
        </property>
       </column>
       <column>
@@ -130,12 +142,12 @@
      <x>0</x>
      <y>0</y>
      <width>743</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">
     <property name="title">
-     <string>Datei</string>
+     <string>Settings</string>
     </property>
     <addaction name="action_download_path"/>
    </widget>
@@ -143,7 +155,7 @@
   </widget>
   <action name="action_download_path">
    <property name="text">
-    <string>Dowload Pfad</string>
+    <string>Path</string>
    </property>
   </action>
  </widget>

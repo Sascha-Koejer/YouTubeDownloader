@@ -42,13 +42,14 @@ class MainWindow(QtWidgets.QMainWindow):
     def add_waitinglist(self):
         url = self.ui.urlinput.text()
         yt = YouTube(url)
-        qualtiy = 140
-        if self.ui.checkBox.isChecked():
-            qualtiy = 18
         row = self.ui.tableWidget.rowCount()
         self.ui.tableWidget.insertRow(row)
+        qualtiy = 140
+        self.ui.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem("Audio"))
+        if self.ui.checkBox.isChecked():
+            qualtiy = 18
+            self.ui.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem("Video"))
         self.ui.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(yt.title))
-        self.ui.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem("Warteschlange"))
         self.ui.urlinput.clear()
         q.put((qualtiy, url))
         
@@ -65,7 +66,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.progressBar.setValue(-value)
         
     def change_dir(self):
-        dir_ = QtWidgets.QFileDialog.getExistingDirectory(None, 'Wähle einen Ordner:', config.get('Settings', 'path'), QtWidgets.QFileDialog.ShowDirsOnly)
+        dir_ = QtWidgets.QFileDialog.getExistingDirectory(None, 'Choose a Folder:', config.get('Settings', 'path'), QtWidgets.QFileDialog.ShowDirsOnly)
         config.set("Settings", "path", dir_)
         with open(settings_path, "w") as configfile:
             config.write(configfile)
@@ -84,7 +85,7 @@ class Download(QThread):
 
                 global max_file_size
                 max_file_size = stream.filesize
-                stream.download(config.get('Settings', 'path')
+                stream.download(config.get('Settings', 'path'))
                 self.valueChanged.emit(0)
 
         except BaseException as error:
